@@ -8,7 +8,7 @@
     "build": "tsc --build && npm run copy-prisma",
     "copy-prisma": "xcopy src\\generated\\prisma dist\\generated\\prisma /E /I /Y",
     "start": "node dist/server.js",
-    "vercel-build":"prisma generate && prisma migrate deploy",
+    "vercel-build":"prisma generate && prisma migrate deploy && npm run build",
     "prisma:generate": "prisma generate"
   },
   "devDependencies": {
