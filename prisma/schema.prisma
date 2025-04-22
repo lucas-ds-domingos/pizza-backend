@@ -74,11 +74,3 @@ model Item{
   product_id String
 }
 
-
-model Teste{
-  id String @id @default(uuid())
-  name String
-
-  @@map("testes")
-
-}

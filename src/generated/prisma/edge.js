@@ -186,6 +186,10 @@ const config = {
         "fromEnvVar": null,
         "value": "windows",
         "native": true
+      },
+      {
+        "fromEnvVar": null,
+        "value": "rhel-openssl-3.0.x"
       }
     ],
     "previewFeatures": [],
@@ -212,8 +216,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id         String    @id @default(uuid())\n  name       String\n  email      String\n  password   String\n  created_at DateTime? @default(now())\n  updated_at DateTime? @default(now())\n\n  @@map(\"users\")\n}\n\nmodel Category {\n  id         String    @id @default(uuid())\n  name       String\n  created_at DateTime? @default(now())\n  updated_at DateTime? @default(now())\n  products   Product[]\n\n  @@map(\"categories\")\n}\n\nmodel Product {\n  id          String    @id @default(uuid())\n  name        String\n  price       String\n  description String\n  banner      String\n  created_at  DateTime? @default(now())\n  updated_at  DateTime? @default(now())\n\n  category    Category @relation(fields: [category_id], references: [id])\n  category_id String\n  items       Item[]\n\n  @@map(\"products\")\n}\n\nmodel Order {\n  id         String    @id @default(uuid())\n  table      Int\n  status     Boolean   @default(false)\n  draft      Boolean   @default(true)\n  name       String?\n  created_at DateTime? @default(now())\n  updated_at DateTime? @default(now())\n\n  items Item[]\n\n  @@map(\"orders\")\n}\n\nmodel Item {\n  id         String    @id @default(uuid())\n  amount     Int\n  created_at DateTime? @default(now())\n  updated_at DateTime? @default(now())\n\n  order      Order   @relation(fields: [order_id], references: [id])\n  product    Product @relation(fields: [product_id], references: [id])\n  order_id   String\n  product_id String\n\n  @@map(\"items\")\n}\n\nmodel Teste {\n  id   String @id @default(uuid())\n  name String\n\n  @@map(\"testes\")\n}\n",
-  "inlineSchemaHash": "544814abeac9daa1166a2b1445dac03817b5a6e9871ac631d98a522398d239bd",
+  "inlineSchema": "generator client {\n  provider      = \"prisma-client-js\"\n  output        = \"../src/generated/prisma\"\n  binaryTargets = [\"native\", \"rhel-openssl-3.0.x\"]\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id         String    @id @default(uuid())\n  name       String\n  email      String\n  password   String\n  created_at DateTime? @default(now())\n  updated_at DateTime? @default(now())\n\n  @@map(\"users\")\n}\n\nmodel Category {\n  id         String    @id @default(uuid())\n  name       String\n  created_at DateTime? @default(now())\n  updated_at DateTime? @default(now())\n  products   Product[]\n\n  @@map(\"categories\")\n}\n\nmodel Product {\n  id          String    @id @default(uuid())\n  name        String\n  price       String\n  description String\n  banner      String\n  created_at  DateTime? @default(now())\n  updated_at  DateTime? @default(now())\n\n  category    Category @relation(fields: [category_id], references: [id])\n  category_id String\n  items       Item[]\n\n  @@map(\"products\")\n}\n\nmodel Order {\n  id         String    @id @default(uuid())\n  table      Int\n  status     Boolean   @default(false)\n  draft      Boolean   @default(true)\n  name       String?\n  created_at DateTime? @default(now())\n  updated_at DateTime? @default(now())\n\n  items Item[]\n\n  @@map(\"orders\")\n}\n\nmodel Item {\n  id         String    @id @default(uuid())\n  amount     Int\n  created_at DateTime? @default(now())\n  updated_at DateTime? @default(now())\n\n  order      Order   @relation(fields: [order_id], references: [id])\n  product    Product @relation(fields: [product_id], references: [id])\n  order_id   String\n  product_id String\n\n  @@map(\"items\")\n}\n\nmodel Teste {\n  id   String @id @default(uuid())\n  name String\n\n  @@map(\"testes\")\n}\n",
+  "inlineSchemaHash": "547a1cf391b7f3b3883396bbb2c29e061dd28bc049f74c200a8a8fe3b0454e76",
   "copyEngine": true
 }
 config.dirname = '/'
