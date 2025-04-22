@@ -1,7 +1,6 @@
 generator client {
-  provider      = "prisma-client-js"
-  output        = "../src/generated/prisma"
-  binaryTargets = ["native", "rhel-openssl-3.0.x"]
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -72,11 +71,4 @@ model Item {
   product_id String
 
   @@map("items")
-}
-
-model Teste {
-  id   String @id @default(uuid())
-  name String
-
-  @@map("testes")
 }

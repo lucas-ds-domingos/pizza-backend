@@ -163,11 +163,6 @@ exports.Prisma.ItemScalarFieldEnum = {
   product_id: 'product_id'
 };
 
-exports.Prisma.TesteScalarFieldEnum = {
-  id: 'id',
-  name: 'name'
-};
-
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -189,8 +184,7 @@ exports.Prisma.ModelName = {
   Category: 'Category',
   Product: 'Product',
   Order: 'Order',
-  Item: 'Item',
-  Teste: 'Teste'
+  Item: 'Item'
 };
 
 /**
